@@ -1,5 +1,13 @@
 variable "unique_suffix" {}
 
+variable "provider_role" {
+  default = ""
+}
+
+variable "sts_duration" {
+  default = 3600
+}
+
 variable "region" {
   default = "eu-west-1"
 }
