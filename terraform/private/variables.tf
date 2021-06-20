@@ -74,3 +74,7 @@ variable "enable_private_endpoint" {
 variable "enable_public_endpoint" {
   default = false
 }
+
+variable "manage_aws_auth" {
+  default = false
+}
