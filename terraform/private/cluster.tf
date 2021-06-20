@@ -21,6 +21,7 @@ module "cluster" {
 
   cluster_endpoint_private_access = var.enable_private_endpoint
   cluster_endpoint_public_access  = var.enable_public_endpoint
+  manage_aws_auth                 = var.manage_aws_auth
 
   worker_groups = [
     {
