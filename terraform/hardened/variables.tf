@@ -29,6 +29,10 @@ variable "wg_instance_type" {
 }
 
 variable "wg_asg_max_size" {
+  default = 5
+}
+
+variable "wg_asg_desired_capacity" {
   default = 2
 }
 

@@ -26,6 +26,7 @@ module "cluster" {
   worker_groups = [
     {
       instance_type                        = var.wg_instance_type
+      asg_desired_capacity                 = var.wg_asg_desired_capacity
       asg_max_size                         = var.wg_asg_max_size
       metadata_http_tokens                 = var.metadata_http_tokens
       metadata_http_put_response_hop_limit = var.metadata_http_hop_limit
