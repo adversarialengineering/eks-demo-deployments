@@ -90,3 +90,8 @@ variable "metadata_http_tokens" {
 variable "metadata_http_hop_limit" {
   default = 1
 }
+
+variable "cluster_enabled_log_types" {
+  type    = list(string)
+  default = ["audit", "authenticator"]
+}

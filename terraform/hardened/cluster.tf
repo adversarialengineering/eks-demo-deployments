@@ -32,4 +32,6 @@ module "cluster" {
       metadata_http_put_response_hop_limit = var.metadata_http_hop_limit
     }
   ]
+
+  cluster_enabled_log_types = var.cluster_enabled_log_types
 }
