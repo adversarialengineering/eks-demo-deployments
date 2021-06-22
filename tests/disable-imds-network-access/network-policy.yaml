@@ -1,0 +1,16 @@
+apiVersion: crd.projectcalico.org/v1
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-all-egress-except-ec2-metadata
+spec:
+  selector: all()
+  egress:
+  - action: Deny
+    protocol: TCP
+    destination:
+      nets:
+      - 169.254.169.254/32
+  - action: Allow
+    destination:
+      nets:
+      - 0.0.0.0/0
