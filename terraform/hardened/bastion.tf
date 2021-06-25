@@ -11,7 +11,7 @@ module "ec2_bastion" {
 
   name                        = "bastion"
   instance_type               = var.bastion_instance_type
-  security_groups             = [aws_security_group.all_worker_mgmt.id]
+  security_groups             = [module.cluster.cluster_primary_security_group_id]
   subnets                     = module.vpc.private_subnets
   user_data                   = var.bastion_user_data
   vpc_id                      = module.vpc.vpc_id
