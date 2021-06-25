@@ -132,3 +132,10 @@ variable "bastion_root_block_device_volume_size" {
   default = 20
 }
 
+
+variable "bastion_admin_public_key" {
+}
+
+variable "bastion_admin_key_name" {
+  default = "bastion-admin-key"
+}
