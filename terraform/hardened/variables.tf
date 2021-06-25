@@ -95,3 +95,40 @@ variable "cluster_enabled_log_types" {
   type    = list(string)
   default = ["audit", "authenticator"]
 }
+
+variable "bastion_enabled" {
+  default = true
+}
+
+variable "bastion_ssm_enabled" {
+  default = true
+}
+
+variable "bastion_instance_type" {
+  default = "t2.micro"
+}
+
+variable "bastion_user_data_base64" {
+  default = ""
+}
+
+variable "bastion_user_data" {
+  default = []
+}
+
+variable "bastion_user_data_template" {
+  default = "user_data.tpl"
+}
+
+variable "bastion_associate_public_ip_address" {
+  default = false
+}
+
+variable "bastion_monitoring" {
+  default = false
+}
+
+variable "bastion_root_block_device_volume_size" {
+  default = 20
+}
+
