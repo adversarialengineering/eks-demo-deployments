@@ -5,9 +5,10 @@ module "vpc" {
   name = local.cluster_name
   cidr = var.vpc_cidr
 
-  azs             = var.vpc_azs
-  private_subnets = var.private_subnet_cidrs
-  public_subnets  = var.public_subnet_cidrs
+  azs                     = var.vpc_azs
+  private_subnets         = var.private_subnet_cidrs
+  public_subnets          = var.public_subnet_cidrs
+  map_public_ip_on_launch = var.map_public_ips
 
   enable_nat_gateway     = var.enable_nat_gateway
   single_nat_gateway     = var.single_nat_gateway

@@ -71,6 +71,10 @@ variable "enable_vpn_gateway" {
   default = false
 }
 
+variable "map_public_ips" {
+  default = false
+}
+
 variable "enable_private_endpoint" {
   default = true
 }
@@ -138,4 +142,8 @@ variable "bastion_admin_public_key" {
 
 variable "bastion_admin_key_name" {
   default = "bastion-admin-key"
+}
+
+variable "bastion_enabled_external_sg" {
+  default = false
 }

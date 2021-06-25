@@ -12,9 +12,10 @@ module "ec2_bastion" {
   name                        = "bastion"
   instance_type               = var.bastion_instance_type
   security_groups             = [aws_security_group.all_worker_mgmt.id]
-  subnets                     = module.vpc.public_subnets
+  subnets                     = module.vpc.private_subnets
   user_data                   = var.bastion_user_data
   vpc_id                      = module.vpc.vpc_id
   associate_public_ip_address = var.bastion_associate_public_ip_address
   key_name                    = var.bastion_admin_key_name
+  security_group_enabled      = var.bastion_enabled_external_sg
 }
