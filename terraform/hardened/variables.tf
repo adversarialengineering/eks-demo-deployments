@@ -100,54 +100,6 @@ variable "cluster_enabled_log_types" {
   default = ["audit", "authenticator"]
 }
 
-variable "bastion_enabled" {
-  default = true
-}
-
-variable "bastion_ssm_enabled" {
-  default = true
-}
-
-variable "bastion_instance_type" {
-  default = "t2.micro"
-}
-
-variable "bastion_user_data_base64" {
-  default = ""
-}
-
-variable "bastion_user_data" {
-  default = []
-}
-
-variable "bastion_user_data_template" {
-  default = "user_data.tpl"
-}
-
-variable "bastion_associate_public_ip_address" {
-  default = false
-}
-
-variable "bastion_monitoring" {
-  default = false
-}
-
-variable "bastion_root_block_device_volume_size" {
-  default = 20
-}
-
-
-variable "bastion_admin_public_key" {
-}
-
-variable "bastion_admin_key_name" {
-  default = "bastion-admin-key"
-}
-
-variable "bastion_enabled_external_sg" {
-  default = false
-}
-
 variable "public_access_whitelist" {
   default = []
 }
