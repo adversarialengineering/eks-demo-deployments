@@ -1,11 +1,11 @@
 data "tls_certificate" "cluster" {
-  url = module.cluster.output.cluster_oidc_issuer_url
+  url = module.cluster.cluster_oidc_issuer_url
 }
 
 resource "aws_iam_openid_connect_provider" "cluster" {
   client_id_list  = ["sts.amazonaws.com"]
   thumbprint_list = [data.tls_certificate.cluster.certificates[0].sha1_fingerprint]
-  url             = module.cluster.output.cluster_oidc_issuer_url
+  url             = module.cluster.cluster_oidc_issuer_url
 }
 
 data "aws_iam_policy_document" "cluster_oidc_policy" {
