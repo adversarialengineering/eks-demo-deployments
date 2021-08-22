@@ -147,3 +147,7 @@ variable "bastion_admin_key_name" {
 variable "bastion_enabled_external_sg" {
   default = false
 }
+
+variable "public_access_whitelist" {
+  default = []
+}

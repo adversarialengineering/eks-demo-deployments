@@ -68,9 +68,10 @@ module "cluster" {
   subnets         = module.vpc.private_subnets
   vpc_id          = module.vpc.vpc_id
 
-  cluster_endpoint_private_access = var.enable_private_endpoint
-  cluster_endpoint_public_access  = var.enable_public_endpoint
-  manage_aws_auth                 = var.manage_aws_auth
+  cluster_endpoint_private_access      = var.enable_private_endpoint
+  cluster_endpoint_public_access       = var.enable_public_endpoint
+  cluster_endpoint_public_access_cidrs = var.public_access_whitelist
+  manage_aws_auth                      = var.manage_aws_auth
 
   worker_groups = [
     {
