@@ -103,3 +103,7 @@ variable "cluster_enabled_log_types" {
 variable "public_access_whitelist" {
   default = []
 }
+
+variable "write_kubeconfig" {
+  default = false
+}

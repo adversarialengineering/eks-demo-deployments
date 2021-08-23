@@ -91,4 +91,7 @@ module "cluster" {
       resources        = ["secrets"]
     }
   ]
+
+
+  write_kubeconfig = var.write_kubeconfig
 }
