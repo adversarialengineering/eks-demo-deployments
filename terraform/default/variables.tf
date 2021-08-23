@@ -66,3 +66,7 @@ variable "one_nat_gateway_per_az" {
 variable "enable_vpn_gateway" {
   default = false
 }
+
+variable "write_kubeconfig" {
+  default = false
+}
