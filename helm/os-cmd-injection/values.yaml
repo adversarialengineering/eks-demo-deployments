@@ -50,7 +50,8 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   hosts:
     - paths:
-        - path: "/"
+        # https://github.com/kubernetes-sigs/aws-load-balancer-controller/issues/699
+        - path: "/*"
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
