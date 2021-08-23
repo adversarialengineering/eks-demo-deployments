@@ -32,7 +32,7 @@ resource "aws_iam_role" "oidc_restricted" {
 }
 
 resource "aws_iam_policy" "alb" {
-  name        = "AWSLoadBalancerControllerIAMPolicy"
+  name        = "AWSLoadBalancerControllerIAMPolicy-${local.cluster_name}"
   path        = "/"
   description = "load balancer policy"
 
@@ -42,7 +42,7 @@ resource "aws_iam_policy" "alb" {
 }
 
 resource "aws_iam_policy" "alb_additional" {
-  name        = "AWSLoadBalancerControllerAdditionalIAMPolicy"
+  name        = "AWSLoadBalancerControllerAdditionalIAMPolicy-${local.cluster_name}"
   path        = "/"
   description = "load balancer policy"
 
@@ -56,7 +56,7 @@ locals {
 }
 
 resource "aws_iam_role" "alb" {
-  name               = "AmazonEKSLoadBalancerControllerRole"
+  name               = "AmazonEKSLoadBalancerControllerRole-${local.cluster_name}"
   assume_role_policy = <<POLICY
 {
   "Version": "2012-10-17",
