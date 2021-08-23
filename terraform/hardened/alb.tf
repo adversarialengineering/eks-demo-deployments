@@ -78,11 +78,6 @@ resource "aws_iam_role" "alb" {
 POLICY
 }
 
-resource "local_file" "alb_service_account" {
-  content  = templatefile("${path.module}/templates/aws-alb-controller.tpl", { role_arn = aws_iam_role.alb.arn })
-  filename = "${path.module}/aws-load-balancer-controller-service-account.yaml"
-}
-
 resource "aws_iam_role_policy_attachment" "alb" {
   policy_arn = aws_iam_policy.alb.arn
   role       = aws_iam_role.alb.name
