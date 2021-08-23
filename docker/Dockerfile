@@ -88,6 +88,7 @@ ARG USER_HOME_DIR="/home/dev"
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
          bash \
+         bash-completion \
          wget \
          curl \
          unzip \
@@ -212,5 +213,7 @@ USER ${USER_NAME}
 
 ENV GOPATH="/home/${USER_NAME}/.gocache"
 ENV PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
+
+COPY bash_aliases "/home/${USER_NAME}/.bash_aliases"
 
 WORKDIR "${USER_HOME_DIR}"

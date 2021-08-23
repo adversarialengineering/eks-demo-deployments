@@ -1,0 +1,7 @@
+source <(kubectl completion bash)
+alias k='kubectl'
+complete -F __start_kubectl k
+alias a='aws'
+function eks_login() {
+    aws eks --region $2 update-kubeconfig --name $1
+}
