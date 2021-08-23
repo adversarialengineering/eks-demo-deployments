@@ -52,7 +52,7 @@ resource "aws_iam_policy" "alb_additional" {
 }
 
 locals {
-  kubernetes_alb_service_account = "system:serviceaccount:kube-system:aws-load-balancer-controller"
+  kubernetes_alb_service_account = "system:serviceaccount:kube-system:alb-ingress-controller"
 }
 
 resource "aws_iam_role" "alb" {
