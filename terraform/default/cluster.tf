@@ -26,4 +26,6 @@ module "cluster" {
       asg_max_size  = var.wg_asg_max_size
     }
   ]
+
+  write_kubeconfig = var.write_kubeconfig
 }
