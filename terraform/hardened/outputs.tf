@@ -26,3 +26,7 @@ output "region" {
 output "cluster_name" {
   value = module.cluster.cluster_id
 }
+
+output "alb_role_arn" {
+  value = aws_iam_role.alb.arn
+}
