@@ -13,7 +13,7 @@ variable "region" {
 }
 
 variable "cluster_name" {
-  default = "eks-threat-modelling"
+  default = "eks-demo"
 }
 
 variable "cluster_version" {
