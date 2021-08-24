@@ -107,3 +107,7 @@ variable "public_access_whitelist" {
 variable "write_kubeconfig" {
   default = false
 }
+
+variable "attach_worker_cni_policy" {
+  default = true
+}

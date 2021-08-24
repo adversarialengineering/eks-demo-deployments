@@ -92,6 +92,6 @@ module "cluster" {
     }
   ]
 
-
-  write_kubeconfig = var.write_kubeconfig
+  attach_worker_cni_policy = var.attach_worker_cni_policy
+  write_kubeconfig         = var.write_kubeconfig
 }
