@@ -1,7 +1,7 @@
 .PHONY: delete_alb_controller
 delete_alb_controller:
-	sed "s/# - --cluster-name=devCluster/- --cluster-name=${cluster_name}/g" kubernetes/alb/alb-ingress-controller.yaml | kubectl delete -f -
-	sed "s#ALB_ROLE_ARN#${role_arn}#g" kubernetes/alb/service-account.yaml | kubectl delete -f -
+	kubectl delete -f kubernetes/alb/alb-ingress-controller.yaml
+	kubectl delete -f kubernetes/alb/service-account.yaml
 	kubectl delete -f kubernetes/alb/rbac-role.yaml
 
 # https://aws.amazon.com/blogs/opensource/kubernetes-ingress-aws-alb-ingress-controller/
