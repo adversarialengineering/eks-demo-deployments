@@ -31,6 +31,11 @@ resource "aws_iam_role" "oidc_restricted" {
   name               = "oidc_${local.cluster_name}"
 }
 
+resource "aws_iam_role_policy_attachment" "oidc" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+  role       = aws_iam_role.oidc_restricted.name
+}
+
 resource "aws_iam_policy" "alb" {
   name        = "AWSLoadBalancerControllerIAMPolicy-${local.cluster_name}"
   path        = "/"
