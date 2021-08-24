@@ -104,7 +104,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && \
          vim \
          software-properties-common \
          jq \
-         iproute2 &&\
+         dnsutils \
+         iproute2 && \
     DEBIAN_FRONTEND=noninteractive apt-get clean
 
  
