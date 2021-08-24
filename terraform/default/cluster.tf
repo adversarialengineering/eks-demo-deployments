@@ -22,8 +22,9 @@ module "cluster" {
 
   worker_groups = [
     {
-      instance_type = var.wg_instance_type
-      asg_max_size  = var.wg_asg_max_size
+      instance_type        = var.wg_instance_type
+      asg_max_size         = var.wg_asg_max_size
+      asg_desired_capacity = var.wg_asg_desired_capacity
     }
   ]
 

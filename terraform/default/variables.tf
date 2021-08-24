@@ -70,3 +70,7 @@ variable "enable_vpn_gateway" {
 variable "write_kubeconfig" {
   default = false
 }
+
+variable "wg_asg_desired_capacity" {
+  default = 1
+}
