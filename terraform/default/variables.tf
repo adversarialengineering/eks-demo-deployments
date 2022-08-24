@@ -1,23 +1,20 @@
-variable "unique_suffix" {}
-
 variable "provider_role" {
   default = ""
 }
 
 variable "sts_duration" {
-  default = 3600
+  default = "3600s"
 }
 
 variable "region" {
   default = "eu-west-1"
 }
 
-variable "cluster_name" {
-  default = "eks-demo"
-}
+variable "cluster_name" {}
 
+# https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html
 variable "cluster_version" {
-  default = "1.19"
+  default = "1.22"
 }
 
 variable "env" {
