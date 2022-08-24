@@ -1,3 +1,6 @@
 .terraform*
 *.tfvars
 *tfplan
+.kubeconfig
+2048_full.yaml
+aws-load-balancer-controller-service-account.yaml
