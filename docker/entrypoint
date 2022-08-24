@@ -1,0 +1,9 @@
+#!/bin/bash
+if [[ ! -z "${PROXY_HOST}" ]] && [[ ! -z "${CLUSTER_ENDPOINT}" ]] && [[ "${CLUSTER_ENDPOINT}" != "localhost" ]]; then
+    aws ssm start-session \
+        --target ${PROXY_HOST} \
+        --document-name AWS-StartPortForwardingSessionToRemoteHost \
+        --parameters '{"host":["'"${CLUSTER_ENDPOINT}"'"],"portNumber":["443"], "localPortNumber":["443"]}'
+else 
+    sleep infinity
+fi

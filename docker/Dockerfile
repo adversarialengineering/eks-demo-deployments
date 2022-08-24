@@ -265,5 +265,6 @@ ENV GOPATH="/home/${USER_NAME}/.gocache"
 ENV PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
 
 COPY bash_aliases "/home/${USER_NAME}/.bash_aliases"
+COPY entrypoint /usr/local/bin/entrypoint
 
 WORKDIR "${USER_HOME_DIR}"
