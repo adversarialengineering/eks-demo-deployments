@@ -42,8 +42,11 @@ configure: .kubeconfig
 .PHONY: test
 test: .kubeconfig 2048_full.yaml
 	kubectl apply -f 2048_full.yaml
+	sleep 3
 	kubectl get ingress ingress-2048 \
-	    -n game-2048 
+	    -n game-2048
+	sleep 3
+	aws elbv2 describe-load-balancers
 
 .PHONY: clean_test
 clean_test: .kubeconfig
