@@ -1,8 +1,9 @@
+# https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "3.1.0"
+  version = "3.14.2"
 
-  name = local.cluster_name
+  name = var.cluster_name
   cidr = var.vpc_cidr
 
   azs             = var.vpc_azs
@@ -13,4 +14,15 @@ module "vpc" {
   single_nat_gateway     = var.single_nat_gateway
   enable_vpn_gateway     = var.enable_vpn_gateway
   one_nat_gateway_per_az = var.one_nat_gateway_per_az
+
+  public_subnet_tags = {
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
+    "kubernetes.io/role/elb"                    = "1"
+  }
+
+  private_subnet_tags = {
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
+    "kubernetes.io/role/internal-elb"           = "1"
+  }
+
 }

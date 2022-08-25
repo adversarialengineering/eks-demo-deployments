@@ -1,23 +1,20 @@
-variable "unique_suffix" {}
-
 variable "provider_role" {
   default = ""
 }
 
 variable "sts_duration" {
-  default = 3600
+  default = "3600s"
 }
 
 variable "region" {
   default = "eu-west-1"
 }
 
-variable "cluster_name" {
-  default = "eks-threat-modelling"
-}
+variable "cluster_name" {}
 
+# https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html
 variable "cluster_version" {
-  default = "1.19"
+  default = "1.22"
 }
 
 variable "env" {
@@ -67,14 +64,22 @@ variable "enable_vpn_gateway" {
   default = false
 }
 
-variable "enable_private_endpoint" {
+variable "write_kubeconfig" {
+  default = false
+}
+
+variable "wg_asg_desired_capacity" {
+  default = 1
+}
+
+variable "create_ssm_profile" {
   default = true
 }
 
-variable "enable_public_endpoint" {
-  default = false
+variable "iam_instance_profile" {
+  default = ""
 }
 
-variable "manage_aws_auth" {
-  default = false
+variable "load_balancer_controller_irsa_role_arn" {
+  default = ""
 }
