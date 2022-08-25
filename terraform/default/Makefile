@@ -52,3 +52,9 @@ test: .kubeconfig 2048_full.yaml
 clean_test: .kubeconfig
 	kubectl delete -f 2048_full.yaml
 
+.PHONY: service_auth_token_disclosure
+service_auth_token_disclosure: .kubeconfig
+	kubectl apply -f ../../tests/service-account-auth/roleBinding.yaml
+	kubectl apply -f ../../tests/service-account-auth/serviceAccount.yaml
+	../../tests/service-account-auth/get-token.sh
+

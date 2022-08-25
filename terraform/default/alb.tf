@@ -1,6 +1,8 @@
 module "load_balancer_controller_irsa_role" {
   source = "terraform-aws-modules/iam/aws///modules/iam-role-for-service-accounts-eks"
 
+  create_role = var.load_balancer_controller_irsa_role_arn == "" ? true : false
+
   role_name                              = "load-balancer-controller"
   attach_load_balancer_controller_policy = true
 
@@ -13,6 +15,6 @@ module "load_balancer_controller_irsa_role" {
 }
 
 resource "local_file" "alb-service-account" {
-  content  = templatefile("${path.module}/templates/aws-load-balancer-controller-service-account.yaml.tpl", { role_arn = module.load_balancer_controller_irsa_role.iam_role_arn })
+  content  = templatefile("${path.module}/templates/aws-load-balancer-controller-service-account.yaml.tpl", { role_arn = var.load_balancer_controller_irsa_role_arn == "" ? module.load_balancer_controller_irsa_role.iam_role_arn : var.load_balancer_controller_irsa_role_arn })
   filename = "${path.module}/aws-load-balancer-controller-service-account.yaml"
 }

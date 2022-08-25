@@ -16,3 +16,7 @@ output "region" {
 output "cluster_name" {
   value = module.cluster.cluster_id
 }
+
+output "load_balancer_controller_irsa_role_arn" {
+  value = var.load_balancer_controller_irsa_role_arn == "" ? module.load_balancer_controller_irsa_role.iam_role_arn : var.load_balancer_controller_irsa_role_arn
+}

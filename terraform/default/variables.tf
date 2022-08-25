@@ -71,3 +71,7 @@ variable "write_kubeconfig" {
 variable "wg_asg_desired_capacity" {
   default = 1
 }
+
+variable "load_balancer_controller_irsa_role_arn" {
+  default = ""
+}
