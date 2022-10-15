@@ -1,23 +1,20 @@
-variable "unique_suffix" {}
-
 variable "provider_role" {
   default = ""
 }
 
 variable "sts_duration" {
-  default = 3600
+  default = "3600s"
 }
 
 variable "region" {
   default = "eu-west-1"
 }
 
-variable "cluster_name" {
-  default = "eks-threat-modelling"
-}
+variable "cluster_name" {}
 
+# https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html
 variable "cluster_version" {
-  default = "1.19"
+  default = "1.22"
 }
 
 variable "env" {
@@ -29,10 +26,6 @@ variable "wg_instance_type" {
 }
 
 variable "wg_asg_max_size" {
-  default = 5
-}
-
-variable "wg_asg_desired_capacity" {
   default = 2
 }
 
@@ -71,43 +64,22 @@ variable "enable_vpn_gateway" {
   default = false
 }
 
-variable "map_public_ips" {
-  default = false
-}
-
-variable "enable_private_endpoint" {
-  default = true
-}
-
-variable "enable_public_endpoint" {
-  default = false
-}
-
-variable "manage_aws_auth" {
-  default = false
-}
-
-variable "metadata_http_tokens" {
-  default = "required"
-}
-
-variable "metadata_http_hop_limit" {
-  default = 1
-}
-
-variable "cluster_enabled_log_types" {
-  type    = list(string)
-  default = ["audit", "authenticator"]
-}
-
-variable "public_access_whitelist" {
-  default = []
-}
-
 variable "write_kubeconfig" {
   default = false
 }
 
-variable "attach_worker_cni_policy" {
+variable "wg_asg_desired_capacity" {
+  default = 1
+}
+
+variable "create_ssm_profile" {
   default = true
+}
+
+variable "iam_instance_profile" {
+  default = ""
+}
+
+variable "load_balancer_controller_irsa_role_arn" {
+  default = ""
 }
