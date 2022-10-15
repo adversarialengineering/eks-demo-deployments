@@ -1,4 +1,4 @@
-CLUSTER_NAME=
+CLUSTER_NAME=eks-demo-private
 ALB_SERVICE_ACCOUNT_CONFIG=aws-load-balancer-controller-service-account.yaml
 EKS_HELM_CHARTS=https://aws.github.io/eks-charts
 
@@ -59,3 +59,6 @@ service_auth_token_disclosure: .kubeconfig
 	kubectl apply -f ../../tests/service-account-auth/serviceAccount.yaml
 	../../tests/service-account-auth/get-token.sh
 
+.PHONY: dos_all_kube_perms
+dos_all_kube_perms:
+	../../tests/aws-iam-system-master-backdoor/delete-all-perms.sh 

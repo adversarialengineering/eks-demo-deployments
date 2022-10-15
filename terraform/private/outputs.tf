@@ -20,3 +20,7 @@ output "cluster_name" {
 output "load_balancer_controller_irsa_role_arn" {
   value = var.load_balancer_controller_irsa_role_arn == "" ? module.load_balancer_controller_irsa_role.iam_role_arn : var.load_balancer_controller_irsa_role_arn
 }
+
+output "ssm_instance_profile" {
+  value = var.create_ssm_profile ? aws_iam_instance_profile.ec2_ssm_core[0].name : var.iam_instance_profile
+}
