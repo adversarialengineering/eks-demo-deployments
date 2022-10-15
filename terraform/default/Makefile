@@ -1,4 +1,4 @@
-CLUSTER_NAME=
+CLUSTER_NAME=eks-demo-public
 ALB_SERVICE_ACCOUNT_CONFIG=aws-load-balancer-controller-service-account.yaml
 EKS_HELM_CHARTS=https://aws.github.io/eks-charts
 
@@ -57,4 +57,10 @@ service_auth_token_disclosure: .kubeconfig
 	kubectl apply -f ../../tests/service-account-auth/roleBinding.yaml
 	kubectl apply -f ../../tests/service-account-auth/serviceAccount.yaml
 	../../tests/service-account-auth/get-token.sh
+
+.PHONY: privelege_escalation_via_imds
+privelege_escalation_via_imds: .kubeconfig
+	kubectl apply -f ../../tests/access-to-imds-pod/aws-cli-pod.yaml 
+	kubectl cp ../../tests/access-to-imds-pods/exploit.py aws:/tmp/exploit.py
+
 

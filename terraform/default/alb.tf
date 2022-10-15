@@ -3,7 +3,7 @@ module "load_balancer_controller_irsa_role" {
 
   create_role = var.load_balancer_controller_irsa_role_arn == "" ? true : false
 
-  role_name                              = "load-balancer-controller"
+  role_name                              = "${var.cluster_name}-load-balancer-controller"
   attach_load_balancer_controller_policy = true
 
   oidc_providers = {
